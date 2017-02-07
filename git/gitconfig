@@ -1,0 +1,18 @@
+[user]
+	name = Robin Suter
+	email = suter.robin@gmail.com
+[push]
+	default = simple
+[alias]
+	st = status
+	co = commit
+	unstage = reset HEAD --
+	l = log --oneline --graph --decorate
+[color]
+	ui = auto
+[diff]
+	renames = copies
+[core]
+	editor = vim
+[pull]
+	rebase = true

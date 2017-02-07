@@ -1,0 +1,118 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# Aliases
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias gits="git status"
+alias gitaa="git add ."
+alias gitcp=git_commit_push
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+
+# functions
+
+# Create a new directory and enter it
+function mk() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+# Extract many types of compressed packages
+# Credit: http://nparikh.org/notes/zshrc.txt
+extract() {
+  if [ -f "$1" ]; then
+    case "$1" in
+      *.tar.bz2)  tar -jxvf "$1"                        ;;
+      *.tar.gz)   tar -zxvf "$1"                        ;;
+      *.bz2)      bunzip2 "$1"                          ;;
+      *.dmg)      hdiutil mount "$1"                    ;;
+      *.gz)       gunzip "$1"                           ;;
+      *.tar)      tar -xvf "$1"                         ;;
+      *.tbz2)     tar -jxvf "$1"                        ;;
+      *.tgz)      tar -zxvf "$1"                        ;;
+      *.zip)      unzip "$1"                            ;;
+      *.ZIP)      unzip "$1"                            ;;
+      *.pax)      cat "$1" | pax -r                     ;;
+      *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
+      *.Z)        uncompress "$1"                       ;;
+      *) echo "'$1' cannot be extracted/mounted via extract()" ;;
+    esac
+  else
+     echo "'$1' is not a valid file to extract"
+  fi
+}
+
+git_commit_push() {
+    git commit -m "\"$1\"" && git push;
+}
+
+function fopen() {
+	xdg-open "$*" &
+}
+
+
+# Environment
+
+# Credit: https://github.com/mathiasbynens/dotfiles
+# Make vim the default editor.
+export EDITOR='vim';
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth';
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+
+# Prompt
+. ~/.bash_prompt
+
+# bashmarks
+source ~/.local/bin/bashmarks.sh
+
+# Autojump - install first: https://github.com/wting/autojump
+#source /etc/profile.d/autojump.sh
