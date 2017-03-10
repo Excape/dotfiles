@@ -10,6 +10,10 @@
 	l = log --oneline --graph --decorate
 [color]
 	ui = auto
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = magenta bold
 [diff]
 	renames = copies
 [core]
