@@ -21,6 +21,10 @@ alias gits="git status"
 alias gitaa="git add ."
 alias gitcp=git_commit_push
 
+alias start="sudo systemctl start"
+alias status="sudo systemctl status"
+alias stop="sudo systemctl stop"
+
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 
