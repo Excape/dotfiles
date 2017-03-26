@@ -4,3 +4,6 @@
 [submodule "sexy-bash-prompt"]
 	path = sexy-bash-prompt
 	url = https://github.com/twolfson/sexy-bash-prompt
+[submodule "mingit"]
+	path = mingit
+	url = git@github.com:evansendra/mingit.git

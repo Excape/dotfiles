@@ -153,5 +153,8 @@ export PATH
 # bashmarks
 source ~/.local/bin/bashmarks.sh
 
+# Mingit
+source ~/.mingit.sh
+
 # Autojump - install first: https://github.com/wting/autojump
 #source /etc/profile.d/autojump.sh

@@ -10,6 +10,7 @@
     ~/.inputrc: runcom/inputrc
     ~/.bash_prompt: sexy-bash-prompt/.bash_prompt
     ~/.local/bin/bashmarks.sh: bin/bashmarks.sh
+    ~/.mingit.sh: mingit/scripts/bashrc
 - clean: ['~']
 - shell: 
     - [mkdir -p ~/.vim/swaps]
