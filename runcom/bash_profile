@@ -161,3 +161,6 @@ source ~/.mingit.sh
 
 # Autojump - install first: https://github.com/wting/autojump
 #source /etc/profile.d/autojump.sh
+
+# remove caps lock uppercase lock for esc-capslock swap
+xmodmap -e "clear Lock"

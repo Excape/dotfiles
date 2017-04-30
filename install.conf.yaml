@@ -12,6 +12,7 @@
     ~/.local/bin/bashmarks.sh: bin/bashmarks.sh
     ~/.config/Terminal/terminalrc: terminal/terminalrc
     ~/.mingit.sh: mingit/scripts/bashrc
+    ~/.Xmodmap:  xfce/Xmodmap
 
 - clean: ['~']
 - shell: 
