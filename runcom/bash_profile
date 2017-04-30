@@ -147,6 +147,9 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 export PATH
 
+# Disable Terminal scroll lock to allow <c-s> in vim
+stty -ixon
+
 # Prompt
 . ~/.bash_prompt
 

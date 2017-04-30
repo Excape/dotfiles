@@ -5,7 +5,7 @@
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.vim/vimrc: vim/vimrc
-    ~/.vim/colors/solarized.vim: vim/solarized.vim
+    ~/.vim/autoload/plug.vim: vim/plug.vim
     ~/.bash_profile: runcom/bash_profile
     ~/.inputrc: runcom/inputrc
     ~/.bash_prompt: sexy-bash-prompt/.bash_prompt
