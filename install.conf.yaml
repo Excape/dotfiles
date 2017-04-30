@@ -4,7 +4,7 @@
       relink: true
 - link:
     ~/.gitconfig: git/gitconfig
-    ~/.vimrc: vim/vimrc
+    ~/.vim/vimrc: vim/vimrc
     ~/.vim/colors/solarized.vim: vim/solarized.vim
     ~/.bash_profile: runcom/bash_profile
     ~/.inputrc: runcom/inputrc
