@@ -112,6 +112,11 @@ set noshowmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" Proper word wrapping
+set wrap
+set linebreak
+set nolist " list disables linebreak
+set breakindent
 " Use relative line numbers
 if exists("&relativenumber")
 	set relativenumber
