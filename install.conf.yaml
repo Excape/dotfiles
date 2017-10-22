@@ -13,6 +13,7 @@
     ~/.config/Terminal/terminalrc: terminal/terminalrc
     ~/.mingit.sh: mingit/scripts/bashrc
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/i3/config: i3/config
 
 - clean: ['~']
 - shell: 
