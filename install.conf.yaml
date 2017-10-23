@@ -15,6 +15,7 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/i3/config: i3/config
     ~/.config/compton.conf: X/compton.conf
+    ~/.config/pulseaudio-ctl/config: X/pulseaudio-ctl-config
 
 - clean: ['~']
 - shell: 
