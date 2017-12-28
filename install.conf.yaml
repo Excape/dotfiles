@@ -17,6 +17,8 @@
     ~/.config/polybar: i3/polybar
     ~/.config/compton.conf: X/compton.conf
     ~/.config/pulseaudio-ctl/config: X/pulseaudio-ctl-config
+    ~/.oh-my-zsh: oh-my-zsh
+    ~/.zshrc: runcom/zshrc
 
 - clean: ['~']
 - shell: 
