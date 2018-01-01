@@ -19,6 +19,7 @@
     ~/.config/pulseaudio-ctl/config: X/pulseaudio-ctl-config
     ~/.oh-my-zsh: oh-my-zsh
     ~/.zshrc: runcom/zshrc
+    ~/.nixpkgs: nixpkgs
 
 - clean: ['~']
 - shell: 
