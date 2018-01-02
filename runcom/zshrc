@@ -67,10 +67,13 @@ plugins=(
   history-substring-search
   docker
   pip
-  autojump
+#  autojump
   # must be last
   zsh-syntax-highlighting
 )
+
+# only on nixos
+source "$(autojump-share)/autojump.zsh"
 
 source $ZSH/oh-my-zsh.sh
 

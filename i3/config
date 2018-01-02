@@ -23,7 +23,7 @@ gaps inner 10
 smart_gaps on
 
 #wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/in_the_post.jpg
+exec_always --no-startup-id feh --bg-fill ~/pictures/wallpapers/in_the_post.jpg
 
 
 #redshift
@@ -158,9 +158,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # volume control
-bindcode 121 exec --no-startup-id pulseaudio-ctl mute
-bindcode 122 exec --no-startup-id pulseaudio-ctl down 20
-bindcode 123 exec --no-startup-id pulseaudio-ctl up 20
+bindcode 121 exec --no-startup-id pactl set-sink-mute 0 toggle
+bindcode 122 exec --no-startup-id "sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -10%'"
+bindcode 123 exec --no-startup-id "sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

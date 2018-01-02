@@ -1,5 +1,5 @@
-rec {
-  packageOverrides = defaultPkgs: with defaultPkgs; {
+{
+  packageOverrides = defaultPkgs: with defaultPkgs; rec {
     mytexlive = with pkgs; texlive.combine {
       inherit (texlive) scheme-small collection-langgerman
       IEEEtran
@@ -9,9 +9,12 @@ rec {
       tracklang;
     };
 
+    i3polybar = pkgs.polybar.override { i3GapsSupport = true; };
+
+
     terminal = with pkgs; buildEnv {
       name = "terminal";
-      paths = [ termite ];
+      paths = [ termite autojump ];
     };
 
     windowManagerTools = with pkgs; buildEnv {
@@ -20,7 +23,7 @@ rec {
         feh
         redshift
         shutter
-        polybar
+        i3polybar
       ];
     };
 

@@ -11,6 +11,7 @@
     ~/.bash_prompt: sexy-bash-prompt/.bash_prompt
     ~/.local/bin/bashmarks.sh: bin/bashmarks.sh
     ~/.config/Terminal/terminalrc: terminal/terminalrc
+    ~/.config/termite/config: terminal/termite-config
     ~/.mingit.sh: mingit/scripts/bashrc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/i3/config: i3/config
