@@ -23,7 +23,7 @@ gaps inner 10
 smart_gaps on
 
 #wallpaper
-exec_always --no-startup-id feh --bg-fill ~/pictures/wallpapers/in_the_post.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/in_the_post.jpg
 
 
 #redshift
@@ -194,6 +194,9 @@ bindsym $mod+r mode "resize"
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# screen locker
+bindsym $mod+Home exec --no-startup-id i3lock-fancy
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

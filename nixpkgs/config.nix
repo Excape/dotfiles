@@ -17,6 +17,12 @@
       libgnome_keyring = pkgs.gnome3.libgnome_keyring;
     };
 
+    xfce.thunar = pkgs.xfce.thunar.override {
+      thunarPlugins = with pkgs.xfce; [
+        tumbler # generate thumbnails  
+      ];
+    };
+
 
     # openhsr-connect
     openhsrConnect = pkgs.callPackage ./packages/openhsr-connect.nix {
@@ -37,6 +43,7 @@
         redshift
         shutter
         polybar
+        i3lock-fancy
       ];
     };
 
