@@ -17,6 +17,13 @@
       libgnome_keyring = pkgs.gnome3.libgnome_keyring;
     };
 
+
+    # openhsr-connect
+    openhsrConnect = pkgs.callPackage ./packages/openhsr-connect.nix {
+      inherit pkgs;
+      pythonPackages = pkgs.python36Packages;
+    };
+
     # package environments
     terminal = with pkgs; buildEnv {
       name = "terminal";
@@ -42,6 +49,8 @@
         thunderbird
         xfce.thunar
         nextcloud-client
+        sxiv # image viewer
+        zathura # pdf viewer
       ];
     };
 
