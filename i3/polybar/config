@@ -60,6 +60,7 @@ modules-center = xwindow
 modules-right = date battery-tlp powermenu
 
 tray-position = right
+tray-detached = false
 tray-background = ${colors.base0C}
 
 scroll-up = i3wm-wsnext

@@ -1,5 +1,5 @@
 {
-  packageOverrides = defaultPkgs: with defaultPkgs; rec {
+  packageOverrides = pkgs: rec {
     mytexlive = with pkgs; texlive.combine {
       inherit (texlive) scheme-small collection-langgerman
       IEEEtran
@@ -9,9 +9,15 @@
       tracklang;
     };
 
-    i3polybar = pkgs.polybar.override { i3GapsSupport = true; };
+    # overrides
+    polybar = pkgs.polybar.override { i3GapsSupport = true; };
 
+    nextcloud-client = pkgs.nextcloud-client.override {
+      withGnomeKeyring = true;
+      libgnome_keyring = pkgs.gnome3.libgnome_keyring;
+    };
 
+    # package environments
     terminal = with pkgs; buildEnv {
       name = "terminal";
       paths = [ termite autojump ];
@@ -23,7 +29,7 @@
         feh
         redshift
         shutter
-        i3polybar
+        polybar
       ];
     };
 
@@ -42,7 +48,11 @@
     latex = with pkgs; buildEnv {
       ignoreCollisions = true;
       name = "latex";
-      paths = [ mytexlive gentium-book-basic pythonPackages.pygments ];
+      paths = [
+        mytexlive
+        gentium-book-basic
+        pythonPackages.pygments
+      ];
     };
   };
 }

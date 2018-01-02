@@ -162,6 +162,10 @@ bindcode 121 exec --no-startup-id pactl set-sink-mute 0 toggle
 bindcode 122 exec --no-startup-id "sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -10%'"
 bindcode 123 exec --no-startup-id "sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +10%'"
 
+# backlight control
+bindcode 232 exec --no-startup-id light -U 10
+bindcode 233 exec --no-startup-id light -A 10
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
