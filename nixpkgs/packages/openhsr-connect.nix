@@ -1,8 +1,8 @@
 { pkgs, pythonPackages }:
 
-  let
+  with pythonPackages; let
     # dependencies which are not present in nixpkgs
-    pyasn1 = with pythonPackages; buildPythonPackage rec {
+    pyasn1 = buildPythonPackage rec {
       name = "pyasn1-0.4.2";
       doCheck = false;
       src = pkgs.fetchurl {
@@ -11,7 +11,7 @@
       };
     };
 
-    pysmb = with pythonPackages; buildPythonPackage rec {
+    pysmb = buildPythonPackage rec {
       name = "pysmb-1.1.22";
       doCheck = false;
       propagatedBuildInputs = [
@@ -23,22 +23,22 @@
       };
     };
 
-    in with pythonPackages; buildPythonPackage rec {
-      name = "openhsr-connect-0.1.15";
+  in buildPythonPackage rec {
+    name = "openhsr-connect-0.1.15";
 
-      src = pkgs.fetchFromGitHub {
-        owner = "openhsr";
-        repo = "connect";
-        rev = "bb479bcef1e53773cc11f0fe171ecd26a2b3e2ea";
-        sha256 = "0dxv21ijh4bbkqzdgdglg698f8sailw0v40zbfn3bjmzw6xw2qvs";
-      };
+    src = pkgs.fetchFromGitHub {
+      owner = "openhsr";
+      repo = "connect";
+      rev = "bb479bcef1e53773cc11f0fe171ecd26a2b3e2ea";
+      sha256 = "0dxv21ijh4bbkqzdgdglg698f8sailw0v40zbfn3bjmzw6xw2qvs";
+    };
 
-      doCheck = false;
+    doCheck = false;
 
-      propagatedBuildInputs = [ pysmb click ruamel_yaml keyring jsonschema ];
+    propagatedBuildInputs = [ pysmb click ruamel_yaml keyring jsonschema ];
 
-      meta = {
-        homepage = "https://github.com/openhsr/connect";
-        description = "Die Offene HSR-Mapper Alternative";
-      };
-    }
+    meta = {
+      homepage = "https://github.com/openhsr/connect";
+      description = "Die Offene HSR-Mapper Alternative";
+    };
+  }
