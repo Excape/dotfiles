@@ -26,8 +26,8 @@ smart_gaps on
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/in_the_post.jpg
 
 
-#redshift
-exec --no-startup-id redshift-gtk
+#redshift - using nixos directly
+#exec --no-startup-id redshift-gtk
 
 #compton
 exec_always --no-startup-id compton -b

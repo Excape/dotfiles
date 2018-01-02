@@ -1,4 +1,6 @@
 {
+  allowUnfree = true;
+
   packageOverrides = pkgs: rec {
     mytexlive = with pkgs; texlive.combine {
       inherit (texlive) scheme-small collection-langgerman
@@ -23,6 +25,60 @@
       ];
     };
 
+    myVscode = with pkgs; vscode-with-extensions.override {
+
+      # When the extension is already available in the default extensions set.
+      vscodeExtensions = with vscode-extensions; [
+        bbenoist.Nix
+        ms-python.python
+      ]   
+
+      # Concise version from the vscode market place when not available in the default set.
+      ++ vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "vscode-theme-onelight";
+          publisher = "akamud";
+          version = "2.1.0";
+          sha256 = "1dx08r35bxvmas1ai02v9r25hxadmvm1fh50grq2r4fzqxjgxkqn";
+        }
+
+        {
+          name = "latex-workshop";
+          publisher = "James-Yu";
+          version = "3.11.0";
+          sha256 = "1h9fk8v2l457vxfffhv9p3bvg5rfh7ij301fbg40y1ffp9907g25";
+        }
+
+        {
+          name = "code-spell-checker";
+          publisher = "streetsidesoftware";
+          version = "1.6.2";
+          sha256 = "1lydxzms6f6g3msfmk2xrnr2yvf3av3ydq2n888wrnds3lkrrs56";
+        }
+
+        {
+          name = "code-spell-checker-german";
+          publisher = "streetsidesoftware";
+          version = "0.1.2";
+          sha256 = "02nkzd85i7kl6gldwq29gld82xrpcp5bzgmccymn4yiwgznancdq";
+        }
+
+        {
+          name = "material-icon-theme";
+          publisher = "PKief";
+          version = "3.2.0";
+          sha256 = "0gjivsfra1m1a4kdgpx795g9mp6h968r38kp6cj5h9mxnqn65zrf";
+        }
+
+        {
+          name = "markdown-all-in-one";
+          publisher = "yzhang";
+          version = "0.11.2";
+          sha256 = "1j4v89pnadf3q38nx3zknsyprallwh767v2b3y5gsfz87ar5b76s";
+        }
+      ];
+    };
+
 
     # openhsr-connect
     openhsrConnect = pkgs.callPackage ./packages/openhsr-connect.nix {
@@ -40,13 +96,11 @@
       name = "windowManagerTools";
       paths = [ 
         feh
-        redshift
         shutter
         polybar
         i3lock-fancy
       ];
     };
-
 
     desktopApps = with pkgs; buildEnv {
       name = "desktopApps";
@@ -58,6 +112,14 @@
         nextcloud-client
         sxiv # image viewer
         zathura # pdf viewer
+      ];
+    };
+
+    devApps = with pkgs; buildEnv {
+      name = "devApps";
+      paths = [ 
+        jetbrains.pycharm-professional
+        myVscode
       ];
     };
 
