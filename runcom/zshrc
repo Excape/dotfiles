@@ -67,15 +67,16 @@ plugins=(
   history-substring-search
   docker
   pip
-#  autojump
   # must be last
   zsh-syntax-highlighting
 )
 
-# only on nixos
-source "$(autojump-share)/autojump.zsh"
-
 source $ZSH/oh-my-zsh.sh
+
+# fasd
+eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install \
+      zsh-wcomp zsh-wcomp-install)"
+
 
 # User configuration
 
@@ -105,3 +106,9 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+# fas aliases
+alias v='f -e vim' # quick opening files with vim
+alias o='a -e xdg-open' # quick opening files with xdg-open
+alias j='fasd_cd -d'

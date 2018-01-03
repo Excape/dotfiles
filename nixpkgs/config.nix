@@ -100,7 +100,7 @@
 
     terminal = with pkgs; buildEnv {
       name = "terminal";
-      paths = [ termite autojump ];
+      paths = [ termite fasd ];
     };
 
     windowManagerTools = with pkgs; buildEnv {
