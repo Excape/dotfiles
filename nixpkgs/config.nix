@@ -2,16 +2,8 @@
   allowUnfree = true;
 
   packageOverrides = pkgs: rec {
-    mytexlive = with pkgs; texlive.combine {
-      inherit (texlive) scheme-small collection-langgerman
-      IEEEtran
-      collection-fontsrecommended
-      collection-latex
-      collection-latexextra
-      tracklang;
-    };
 
-    # overrides
+    ### --- package overrides ---
     polybar = pkgs.polybar.override { i3GapsSupport = true; };
 
     nextcloud-client = pkgs.nextcloud-client.override {
@@ -80,13 +72,32 @@
     };
 
 
-    # openhsr-connect
+    ### --- custom packages ---
+
     openhsrConnect = pkgs.callPackage ./packages/openhsr-connect.nix {
       inherit pkgs;
       pythonPackages = pkgs.python36Packages;
     };
 
-    # package environments
+    # mkdocs
+    mkdocs = with pkgs; callPackage ./packages/mkdocs.nix {
+      python = python36;
+      inherit fetchFromGitHub fetchurl mkdocs-material pymdown-extensions;
+    };
+
+    pymdown-extensions = with pkgs; callPackage ./packages/pymdown-extensions.nix {
+      python = python36;
+      inherit fetchurl;
+    };
+
+    mkdocs-material = with pkgs; callPackage ./packages/mkdocs-material.nix {
+      python = python36;
+      inherit fetchurl fetchFromGitHub pymdown-extensions;
+    };
+
+
+    ### --- package environments ---
+
     terminal = with pkgs; buildEnv {
       name = "terminal";
       paths = [ termite autojump ];
@@ -94,7 +105,7 @@
 
     windowManagerTools = with pkgs; buildEnv {
       name = "windowManagerTools";
-      paths = [ 
+      paths = [
         feh
         shutter
         polybar
@@ -108,10 +119,13 @@
         firefox
         keepassx-community
         thunderbird
+        libreoffice
         xfce.thunar
         nextcloud-client
         sxiv # image viewer
         zathura # pdf viewer
+        gimp
+        qgis
       ];
     };
 
@@ -121,6 +135,25 @@
         jetbrains.pycharm-professional
         myVscode
       ];
+    };
+
+    pythonTools = with pkgs; with python36Packages; buildEnv {
+      name = "pythonTools";
+      paths = [ 
+        virtualenv
+        mkdocs
+        mkdocs-material
+      ];
+    };
+
+    # custom latex environment
+    mytexlive = with pkgs; texlive.combine {
+      inherit (texlive) scheme-small collection-langgerman
+      IEEEtran
+      collection-fontsrecommended
+      collection-latex
+      collection-latexextra
+      tracklang;
     };
 
     latex = with pkgs; buildEnv {
