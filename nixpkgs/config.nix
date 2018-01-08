@@ -123,7 +123,7 @@
         xfce.thunar
         nextcloud-client
         sxiv # image viewer
-        zathura # pdf viewer
+        qpdfview # pdf viewer
         gimp
         qgis
       ];
@@ -143,12 +143,14 @@
         virtualenv
         mkdocs
         mkdocs-material
+        pipenv
+        flake8
       ];
     };
 
     # custom latex environment
     mytexlive = with pkgs; texlive.combine {
-      inherit (texlive) scheme-small collection-langgerman
+      inherit (texlive) scheme-small collection-langgerman pdfjam
       IEEEtran
       collection-fontsrecommended
       collection-latex

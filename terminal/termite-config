@@ -1,5 +1,5 @@
 [options]
-font = Monospace 12
+font = hack 12
 
 [colors]
 # Base16 Solarized Dark
