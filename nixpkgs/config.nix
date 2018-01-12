@@ -75,24 +75,24 @@
     ### --- custom packages ---
 
     openhsrConnect = pkgs.callPackage ./packages/openhsr-connect.nix {
-      inherit pkgs;
       pythonPackages = pkgs.python36Packages;
     };
 
     # mkdocs
     mkdocs = with pkgs; callPackage ./packages/mkdocs.nix {
       python = python36;
-      inherit fetchFromGitHub fetchurl mkdocs-material pymdown-extensions;
     };
 
     pymdown-extensions = with pkgs; callPackage ./packages/pymdown-extensions.nix {
       python = python36;
-      inherit fetchurl;
     };
 
     mkdocs-material = with pkgs; callPackage ./packages/mkdocs-material.nix {
       python = python36;
-      inherit fetchurl fetchFromGitHub pymdown-extensions;
+    };
+
+    osmium = with pkgs; callPackage ./packages/osmium.nix {
+      python = python36;
     };
 
 
@@ -100,7 +100,11 @@
 
     terminal = with pkgs; buildEnv {
       name = "terminal";
-      paths = [ termite fasd ];
+      paths = [
+        termite
+        fasd
+        bc # calculator
+      ];
     };
 
     windowManagerTools = with pkgs; buildEnv {
@@ -126,6 +130,8 @@
         qpdfview # pdf viewer
         gimp
         qgis
+        calibre
+        masterpdfeditor
       ];
     };
 
