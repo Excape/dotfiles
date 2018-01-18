@@ -57,7 +57,7 @@ font-3 = FontAwesome:pixelsize=10;2
 modules-left = i3
 modules-center = xwindow
 ;modules-right = weather date powermenu
-modules-right = date battery-tlp powermenu
+modules-right = spotify date battery-tlp powermenu
 
 tray-position = right
 tray-detached = false
@@ -201,6 +201,14 @@ menu-2-0 = power off
 menu-2-0-exec = systemctl poweroff; mode "default"
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/spotify-module.sh %artist% - %title%
+tail = true
+interval = 2
+format-prefix = ""
+format-prefix-margin = 3
 
 [settings]
 screenchange-reload = true

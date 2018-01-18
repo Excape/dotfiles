@@ -114,6 +114,7 @@
         shutter
         polybar
         i3lock-fancy
+        playerctl
       ];
     };
 
@@ -132,6 +133,14 @@
         qgis
         calibre
         masterpdfeditor
+      ];
+    };
+
+    mediaApps = with pkgs; buildEnv {
+      name = "mediaApps";
+      paths = [
+        vlc
+        spotify
       ];
     };
 
