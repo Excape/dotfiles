@@ -68,6 +68,13 @@
           version = "0.11.2";
           sha256 = "1j4v89pnadf3q38nx3zknsyprallwh767v2b3y5gsfz87ar5b76s";
         }
+
+        {
+          name = "mdmath";
+          publisher = "goessner";
+          version = "2.1.0";
+          sha256 = "1ylkzr3sv2q3p2hfr7lm6pibw1wcv55dil04mh13c892wb4vxgab";
+        }
       ];
     };
 
