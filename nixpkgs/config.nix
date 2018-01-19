@@ -129,6 +129,7 @@
         polybar
         i3lock-fancy
         playerctl
+        rofi # application launcher
       ];
     };
 
@@ -163,6 +164,13 @@
       paths = [ 
         jetbrains.pycharm-professional
         myVscode
+      ];
+    };
+
+    haskellTools = with pkgs; with haskellPackages; buildEnv {
+      name = "haskellTools";
+      paths = [ 
+        ghc
       ];
     };
 
