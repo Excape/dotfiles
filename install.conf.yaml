@@ -21,6 +21,7 @@
     ~/.oh-my-zsh: oh-my-zsh
     ~/.zshrc: runcom/zshrc
     ~/.nixpkgs: nixpkgs
+    ~/.Xresources: X/Xresources
 
 - clean: ['~']
 - shell: 
