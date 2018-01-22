@@ -8,6 +8,6 @@ if [ "$(playerctl status)" = "Playing" ]; then
   artist=`exec playerctl metadata xesam:artist`
   echo "$artist - $title"
 else
-  echo " "
+  echo ""
 fi
 

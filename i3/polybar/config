@@ -31,9 +31,23 @@ base0D = #6699CC
 base0E = #C594C5
 base0F = #AB7967
 
+bgblue = #010024
+white = #f8f8f8
+pink = #F92672
+dpink = #a01849
+cyan = #23ceef
+dcyan = #157b8f
+purple = #8e4fff
+dpurple = #5a32a2
+orange = #f4a63a
+dorange = #aa7428
+green = #A6E22E
+dgreen = #77A915
+black = #000000
+
 [bar/mybar]
 width = 100%
-height = 27
+height = 30
 fixed-center = true 
 bottom = true
 
@@ -41,133 +55,109 @@ background = ${colors.base00}
 foreground = ${colors.base07}
 
 line-size = 2
+underline-size = 3
 line-color = ${colors.base0D}
 
 padding-left = 0
-padding-right = 2
+padding-right = 1
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = "Roboto:size=10:weight=bold;2"
-font-1 = unifont:fontformat=truetype:size=8:antialias=false
-font-2 = siji:pixelsize=10
-font-3 = FontAwesome:pixelsize=10;2
+font-0 = hack:size=10:weight=bold;3"
+font-1 = FontAwesome:pixelsize=10;2
+font-2 = unifont:fontformat=truetype:size=8:antialias=false
+font-3 = siji:pixelsize=10
 
-modules-left = i3
-modules-center = xwindow
-;modules-right = weather date powermenu
-modules-right = spotify date battery-tlp powermenu
+modules-left = i3 xwindow
+modules-center = date
+modules-right = spotify backlight battery-tlp wlan powermenu
 
 tray-position = right
 tray-detached = false
-tray-background = ${colors.base0C}
+tray-background = ${colors.dcyan}
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-;[module/weather]
-;type = custom/script
-;interval = 1800
-;format = <label>
-;format-prefix = " "
-;format-prefix-foreground = ${colors.base07}
-;exec = ~/.config/polybar/weather
-
 [module/xwindow]
 type = internal/xwindow
-label = %title%
+label = %title:0:50: %
+
 
 [module/i3]
 type = internal/i3
 index-sort = true
-
-; Create click handler used to focus workspace
-; Default: true
-enable-click = true
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
-enable-scroll = true
-
-; Wrap around when reaching the first/last workspace
-; Default: true
 wrapping-scroll = false
+pin-workspaces = true
+strip-wsnumbers = false
 
-; Set the scroll cycle direction 
-; Default: true
-reverse-scroll = true
-
-; Use fuzzy (partial) matching on labels when assigning 
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces 
-; containing 'code' in the label
-; Default: false
-fuzzy-match = true
-
-; Available tags:
-;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
-;   <label-mode> (default)
 format = <label-state> <label-mode>
 
-; Available tokens:
-;   %mode%
-; Default: %mode%
-label-mode = %mode%
-;label-mode-padding = 2
-label-mode-background = #EC5f67
+label-mode-padding = 1
+label-mode-background = ${colors.dpink}
+label-mode-underline = ${colors.pink}
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-label-focused = 
-;label-focused-foreground = #ffffff
-;label-focused-background = #EC5f67
-label-focused-underline = ${colors.base0B}
-label-focused-padding = 2
+label-focused = %icon%
+label-focused-padding = 1
+label-focused-background = ${colors.dcyan}
+label-focused-underline = ${colors.cyan}
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-unfocused = 
-label-unfocused-padding = 2
+label-unfocused = %icon%
+label-unfocused-padding = 1
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-visible = 
-label-visible-underline = #555555
-label-visible-padding = 4
+label-urgent = %icon%
+label-urgent-padding = 1
+label-urgent-background = ${colors.dpink}
+label-urgent-underline = ${colors.pink}
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-label-urgent = 
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-padding = 2
+label-visible = %icon%
+label-visible-padding = 1
+label-visible-background = ${colors.dcyan}
+label-visible-underline = ${colors.dcyan}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;
+ws-icon-9 = 10;10
 
 [module/date]
 type = internal/date
 interval = 1
 
-date = "%a %d-%m-%Y"
+date = "%a %d"
 time = %H:%M:%S
 
 format-prefix = "  "
 format-prefix-foreground = ${colors.base07}
 
 
-label = %date%    %time%
+label = %date%   %time%
+
+[module/backlight]
+type = internal/xbacklight
+format = <bar>
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-font = 3
+bar-indicator-foreground = #ff
+bar-fill = ─
+bar-fill-font = 3
+bar-fill-foreground = ${colors.cyan}
+bar-empty = ─
+bar-empty-font = 3
+bar-empty-foreground = #44
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+card = intel_backlight
 
 [module/battery-tlp]
 type = custom/script
@@ -202,6 +192,32 @@ menu-2-0-exec = systemctl poweroff; mode "default"
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
+
+[module/network]
+type = internal/network
+interval = 3.0
+
+format-connected = <label-connected> <ramp-signal>
+format-connected-padding = 1
+
+format-disconnected-padding = 1
+
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+
+[module/wlan]
+inherit = module/network
+interface = wlp3s0
+
+label-connected =  %essid%
+label-disconnected = 
+
 [module/spotify]
 type = custom/script
 exec = ~/.config/polybar/spotify-module.sh %artist% - %title%
@@ -210,12 +226,13 @@ interval = 2
 format-prefix = ""
 format-prefix-margin = 3
 
+
 [settings]
 screenchange-reload = true
 
 
 [global/wm]
-margin-top = 3
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 
