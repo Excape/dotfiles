@@ -225,6 +225,7 @@ tail = true
 interval = 2
 format-prefix = ""
 format-prefix-margin = 3
+label = %output:0:50: %
 
 
 [settings]

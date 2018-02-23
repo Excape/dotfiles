@@ -32,6 +32,7 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/in_the_post.jpg
 exec_always --no-startup-id compton -b
 
 #screenshot
+exec_always --no-startup-id shutter --min_at_startup
 bindsym --release Print exec shutter -s
 
 # network manager
