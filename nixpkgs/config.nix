@@ -189,6 +189,15 @@
       ];
     };
 
+    dotNet-dev = with pkgs; buildEnv {
+      name = "dotNet-dev";
+      paths = [
+        dotnet-sdk
+        jetbrains.rider
+      ];
+    };
+
+
     haskellTools = with pkgs; with haskellPackages; buildEnv {
       name = "haskellTools";
       paths = [ 
@@ -206,6 +215,7 @@
         flake8
       ];
     };
+
 
     # custom latex environment
     mytexlive = with pkgs; texlive.combine {
