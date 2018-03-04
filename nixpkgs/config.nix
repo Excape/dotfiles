@@ -8,7 +8,7 @@
 
     nextcloud-client = pkgs.nextcloud-client.override {
       withGnomeKeyring = true;
-      libgnome_keyring = pkgs.gnome3.libgnome_keyring;
+      libgnome-keyring = pkgs.gnome3.libgnome-keyring;
     };
 
     xfce.thunar = pkgs.xfce.thunar.override {
