@@ -19,6 +19,8 @@
     ~/.config/compton.conf: X/compton.conf
     ~/.config/pulseaudio-ctl/config: X/pulseaudio-ctl-config
     ~/.oh-my-zsh: oh-my-zsh
+    ~/.oh-my-zsh/themes/spaceship-prompt: runcom/spaceship-prompt
+    ~/.oh-my-zsh/themes/spaceship.zsh-theme: runcom/spaceship-prompt/spaceship.zsh-theme
     ~/.zshrc: runcom/zshrc
     ~/.nixpkgs: nixpkgs
     ~/.Xresources: X/Xresources
