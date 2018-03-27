@@ -22,7 +22,9 @@
     ~/.oh-my-zsh/themes/spaceship-prompt: runcom/spaceship-prompt
     ~/.oh-my-zsh/themes/spaceship.zsh-theme: runcom/spaceship-prompt/spaceship.zsh-theme
     ~/.zshrc: runcom/zshrc
-    ~/.nixpkgs: nixpkgs
+    ~/.nixpkgs/config.nix: nixpkgs/config.nix
+    ~/.config/nixpkgs/overlays: nixpkgs/overlays
+    ~/.config/nixpkgs/packages: nixpkgs/packages
     ~/.Xresources: X/Xresources
 
 - clean: ['~']

@@ -1,9 +1,22 @@
 { fetchFromGitHub, fetchurl, python, pymdown-extensions }:
 
   with python.pkgs; let
+    livereload = buildPythonPackage {
+      name = "livereload-2.5.1";
+      doCheck = false;
+      propagatedBuildInputs = [
+        tornado
+        six
+      ];
+      src = fetchurl {
+        url = "https://pypi.python.org/packages/e9/2e/c4972828cf526a2e5f5571d647fb2740df68f17e8084a9a1092f4d209f4c/livereload-2.5.1.tar.gz";
+        sha256 = "0b2yyfnpddmrwjfqsndidzchkf3l9jlgzfkwl8dplim9gq6y2ba2";
+      };
+    };
+
     # mkdocs as python library only required by install
     mkdocs = buildPythonPackage {
-      name = "mkdocs-0.17.2";
+      name = "mkdocs-0.17.3";
       doCheck = false;
       propagatedBuildInputs = [
         click
@@ -14,19 +27,20 @@
         tornado
       ];
       src = fetchurl {
-        url = "https://pypi.python.org/packages/27/0a/bb42cda3b298ffb4b30375b7538a4d57803ff8be418ee3e00460188c4332/mkdocs-0.17.2.tar.gz";
-        sha256 = "18d3m9iws5shlbg0yj5xwiy68bliiz70v32y5pa8wi274c36nssa";
+        url = "https://pypi.python.org/packages/8a/cc/593faba2554b0a950249b0240417319de67f3e2ee5b70755c49b70be043a/mkdocs-0.17.3.tar.gz";
+        sha256 = "1faga4arlaq5y883zgpfgmf4iqfszmk50dycrkx7gc6y3a3rnvhj";
       };
     };
 
   in buildPythonApplication rec {
-    name = "mkdocs-material-2.2.6";
+    name = "mkdocs-material-${version}";
+    version = "2.7.1";
 
     src = fetchFromGitHub {
       owner = "squidfunk";
       repo = "mkdocs-material";
-      rev = "6d9a48fc804715744618d0a22403804be48487a8";
-      sha256 = "08hrq743fvvygqllgvj9id7c7chb7l3nh5lq5xzns8zkfvw3rqf6";
+      rev = version;
+      sha256 = "07dzrnbkyqnwfip6iba7gkvx2idyyij2slm8i27b89sd37ahmv3c";
     };
 
     doCheck = false;
