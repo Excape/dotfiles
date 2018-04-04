@@ -23,4 +23,8 @@ self: super:
     eclipse-ee-47 = super.callPackage ../packages/eclipse47.nix {};
 
     astah-professional = super.callPackage ../packages/astah-professional.nix {};
+
+    records = super.callPackage ../packages/records.nix {
+      python = self.python36;
+    };
 }
