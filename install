@@ -13,5 +13,6 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 git submodule update --init --recursive sexy-bash-prompt
 git submodule update --init --recursive mingit
 git submodule update --init --recursive oh-my-zsh
+git submodule update --init --recursive runcom/spaceship-prompt
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
